@@ -777,6 +777,11 @@ button {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
+.hero-stat dt,
+.hero-stat dd {
+  margin: 0;
+}
+
 .hero-stat strong {
   display: block;
   font-size: var(--fs-600);
