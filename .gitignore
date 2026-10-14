@@ -1,0 +1,28 @@
+# Dependencies (if a toolchain is ever added)
+node_modules/
+.pnpm-store/
+
+# Environment / secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# Build output
+dist/
+build/
+.cache/
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+.vscode/
+.idea/
+
+# Local tooling
+*.local

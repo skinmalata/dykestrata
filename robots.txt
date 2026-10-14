@@ -1,0 +1,13 @@
+# robots.txt — DYKESTRATA SERVICES LIMITED
+# Replace the sitemap URL with the production domain at launch.
+
+User-agent: *
+Allow: /$
+
+# Pages that are templates or not yet published are excluded from indexing
+# in their own <meta name="robots"> tags. Do not block them here, otherwise
+# search engines cannot read the noindex directive.
+Disallow: /functions/
+Disallow: /assets/js/config.js
+
+Sitemap: https://www.dykestrata.example/sitemap.xml

@@ -1,0 +1,18 @@
+{
+  "name": "DYKESTRATA SERVICES LIMITED",
+  "short_name": "DYKESTRATA",
+  "description": "Professional business services from DYKESTRATA SERVICES LIMITED (RC 9931890), a Nigerian private company limited by shares.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0b2545",
+  "lang": "en-NG",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
