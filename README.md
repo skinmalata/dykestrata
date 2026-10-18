@@ -14,9 +14,9 @@ Pages Function provides a secure contact-form endpoint.
 
 | Deliverable | Status |
 | --- | --- |
-| Homepage (`index.html`) | Implemented |
+| Homepage (`index.html`) | Implemented (sliding hero = the 4 core services) |
 | About Us (`about.html`) | Implemented |
-| Services (`services.html`) | Implemented (content = clearly-marked placeholders) |
+| Services (`services.html`) | Implemented (4 core subsurface service lines published) |
 | Industries (`industries.html`) | Built but **deactivated** (`noindex`, excluded from nav & sitemap) |
 | Contact (`contact.html`) with enquiry form | Implemented (delivery requires credentials — see §4) |
 | Privacy Policy (`privacy.html`) | Template — **requires legal review** |
@@ -55,7 +55,11 @@ dykestrata/
 │   │   └── main.js           # Navigation, form, bindings, integrations
 │   └── images/
 │       ├── logo.svg          # Wordmark mark (placeholder monogram)
-│       ├── hero.svg
+│       ├── slide-seismic.svg # Hero slider artwork (one per service)
+│       ├── slide-field.svg
+│       ├── slide-petro.svg
+│       ├── slide-ppgm.svg
+│       ├── hero.svg          # Original hero artwork (unused)
 │       ├── about.svg
 │       └── og-image.png      # 1200×630 social share image
 │
@@ -144,8 +148,17 @@ most edits happen in one file.
 **Page copy** (headings, paragraphs, cards) is edited directly in the relevant
 `.html` file. Search for the visible text you want to change.
 
-**Services** — replace the placeholder `<article>` blocks in `services.html`
-(and the cards in `index.html`) with approved titles and descriptions.
+**Services** — the four core subsurface service lines are published in
+`services.html` (with summary cards in `index.html`). The scope-of-work and
+deliverable wording in each block is a first draft: ask the company to review
+and correct it before launch.
+
+**Homepage hero slider** — the four slides are the `.hero-slide` blocks in
+`index.html`, each paired (in order) with a figure in `.hero-visuals`
+(`assets/images/slide-*.svg`). Change rotation speed with the `data-interval`
+attribute on `#heroSlider` (milliseconds). Autoplay pauses on hover, on keyboard
+focus, while the tab is hidden, and entirely for reduced-motion visitors —
+arrows, dots, the pause button and arrow keys still work.
 
 **Images** — drop replacements into `assets/images/` and update the `src`
 attributes. Keep the `width`/`height` attributes set to avoid layout shift.

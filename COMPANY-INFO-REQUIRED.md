@@ -15,8 +15,11 @@ published publicly. Nothing unverified has been presented as fact.
 ## Needed from the company
 
 ### Commercial content
-- [ ] **Main business activities and services** — confirmed titles + descriptions.
-      Replace the placeholder blocks in `services.html` and the cards on `index.html`.
+- [x] **Main business activities and services** — confirmed core service lines
+      published on `services.html` and `index.html`: Seismic Acquisition,
+      Processing and Interpretation; Field Development & Prospectivity
+      Studies; Petrophysics; Pore Pressure and Geomechanics. Scope/deliverable
+      wording is a first draft — ask the company to review it.
 - [ ] **Target customers and industries** — required before publishing
       `industries.html`.
 - [ ] **Mission, vision, and core values** — for approval on `about.html`.

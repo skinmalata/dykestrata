@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Abstract petrophysical log tracks with porosity, saturation and lithology curves">
+  <defs>
+    <linearGradient id="s3bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a35"/>
+      <stop offset="0.6" stop-color="#0b2545"/>
+      <stop offset="1" stop-color="#123a6b"/>
+    </linearGradient>
+    <linearGradient id="s3glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#2bb3bd" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="s3glowR" cx="0.82" cy="0.14" r="0.7">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2bb3bd" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="s3grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <clipPath id="s3clip">
+      <rect x="300" y="150" width="780" height="620" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#s3bg)"/>
+  <rect width="1200" height="900" fill="url(#s3grid)"/>
+  <rect width="1200" height="900" fill="url(#s3glowR)"/>
+
+  <g>
+    <rect x="150" y="150" width="120" height="620" rx="14" fill="#071a35" fill-opacity="0.65" stroke="#ffffff" stroke-opacity="0.16" stroke-width="2"/>
+    <g>
+      <rect x="158" y="158" width="104" height="86" fill="#0e7c86" fill-opacity="0.75"/>
+      <rect x="158" y="244" width="104" height="54" fill="#109aa6" fill-opacity="0.55"/>
+      <rect x="158" y="298" width="104" height="120" fill="#123a6b" fill-opacity="0.85"/>
+      <rect x="158" y="418" width="104" height="72" fill="#0e7c86" fill-opacity="0.7"/>
+      <rect x="158" y="490" width="104" height="96" fill="#1b4f91" fill-opacity="0.7"/>
+      <rect x="158" y="586" width="104" height="64" fill="#c9a227" fill-opacity="0.55"/>
+      <rect x="158" y="650" width="104" height="112" fill="#0b2545" fill-opacity="0.9"/>
+    </g>
+    <g stroke="#ffffff" stroke-opacity="0.2" stroke-width="2">
+      <line x1="158" y1="244" x2="262" y2="244"/>
+      <line x1="158" y1="298" x2="262" y2="298"/>
+      <line x1="158" y1="418" x2="262" y2="418"/>
+      <line x1="158" y1="490" x2="262" y2="490"/>
+      <line x1="158" y1="586" x2="262" y2="586"/>
+      <line x1="158" y1="650" x2="262" y2="650"/>
+    </g>
+  </g>
+
+  <g clip-path="url(#s3clip)">
+    <rect x="300" y="150" width="780" height="620" fill="#071a35" fill-opacity="0.55"/>
+    <g stroke="#ffffff" stroke-opacity="0.14" stroke-width="2">
+      <line x1="560" y1="150" x2="560" y2="770"/>
+      <line x1="820" y1="150" x2="820" y2="770"/>
+      <line x1="300" y1="305" x2="1080" y2="305"/>
+      <line x1="300" y1="460" x2="1080" y2="460"/>
+      <line x1="300" y1="615" x2="1080" y2="615"/>
+    </g>
+
+    <path d="M470 150 C 512 236, 420 300, 468 372 S 530 500, 476 566 S 424 690, 470 770"
+          fill="none" stroke="#2bb3bd" stroke-width="5" stroke-linecap="round"/>
+    <path d="M700 150 C 746 224, 664 296, 716 366 S 766 494, 704 560 S 656 700, 706 770"
+          fill="none" stroke="#c9a227" stroke-width="5" stroke-linecap="round"/>
+    <path d="M930 150 C 968 246, 892 306, 936 384 S 984 512, 930 578 S 884 704, 934 770"
+          fill="none" stroke="#ffffff" stroke-opacity="0.75" stroke-width="5" stroke-linecap="round"/>
+
+    <rect x="560" y="372" width="260" height="88" fill="#2bb3bd" fill-opacity="0.16"/>
+    <rect x="820" y="560" width="260" height="112" fill="#c9a227" fill-opacity="0.16"/>
+  </g>
+
+  <rect x="300" y="150" width="780" height="620" rx="18" fill="none" stroke="#ffffff" stroke-opacity="0.2" stroke-width="2"/>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="700" fill="#a9bcd6">
+    <text x="300" y="124">GR</text>
+    <text x="652" y="124">NPHI / RHOB</text>
+    <text x="930" y="124">Sw</text>
+  </g>
+
+  <g>
+    <rect x="150" y="806" width="340" height="72" rx="16" fill="#071a35" fill-opacity="0.7" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="150" y="806" width="8" height="72" rx="4" fill="#2bb3bd"/>
+    <text x="182" y="852" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff">Net pay 14.6 m</text>
+  </g>
+  <g>
+    <rect x="640" y="806" width="400" height="72" rx="16" fill="#071a35" fill-opacity="0.7" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="640" y="806" width="8" height="72" rx="4" fill="#c9a227"/>
+    <text x="672" y="852" font-family="Inter, Helvetica, Arial, sans-serif" font-size="30" font-weight="800" fill="#ffffff">Φ 18% · Sw 32%</text>
+  </g>
+</svg>

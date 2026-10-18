@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Abstract pore pressure and fracture gradient prediction chart with a wellbore schematic">
+  <defs>
+    <linearGradient id="s4bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a35"/>
+      <stop offset="0.6" stop-color="#0b2545"/>
+      <stop offset="1" stop-color="#123a6b"/>
+    </linearGradient>
+    <linearGradient id="s4band" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.05"/>
+      <stop offset="1" stop-color="#2bb3bd" stop-opacity="0.35"/>
+    </linearGradient>
+    <radialGradient id="s4glow" cx="0.82" cy="0.14" r="0.7">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2bb3bd" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="s4grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <clipPath id="s4clip">
+      <rect x="130" y="170" width="660" height="600" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#s4bg)"/>
+  <rect width="1200" height="900" fill="url(#s4grid)"/>
+  <rect width="1200" height="900" fill="url(#s4glow)"/>
+
+  <rect x="130" y="170" width="660" height="600" rx="18" fill="#071a35" fill-opacity="0.6" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g clip-path="url(#s4clip)">
+    <g stroke="#ffffff" stroke-opacity="0.14" stroke-width="2">
+      <line x1="130" y1="320" x2="790" y2="320"/>
+      <line x1="130" y1="470" x2="790" y2="470"/>
+      <line x1="130" y1="620" x2="790" y2="620"/>
+      <line x1="345" y1="170" x2="345" y2="770"/>
+      <line x1="560" y1="170" x2="560" y2="770"/>
+    </g>
+
+    <path d="M300 170 C 372 300, 372 470, 466 770 L700 770 C 640 470, 640 300, 574 170 Z" fill="url(#s4band)"/>
+
+    <path d="M330 170 C 396 296, 400 464, 484 770" fill="none" stroke="#c9a227" stroke-width="6" stroke-linecap="round"/>
+    <path d="M596 170 C 546 300, 542 462, 466 770" fill="none" stroke="#ffffff" stroke-opacity="0.8" stroke-width="6" stroke-linecap="round"/>
+    <path d="M462 170 C 500 300, 470 500, 512 770" fill="none" stroke="#2bb3bd" stroke-width="6" stroke-linecap="round" stroke-dasharray="18 14"/>
+
+    <circle cx="484" cy="620" r="16" fill="#0b2545" stroke="#2bb3bd" stroke-width="6"/>
+    <line x1="484" y1="620" x2="690" y2="620" stroke="#2bb3bd" stroke-opacity="0.6" stroke-width="3" stroke-dasharray="10 10"/>
+  </g>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="24" font-weight="700">
+    <text x="130" y="140" fill="#a9bcd6">Pressure / Gradient</text>
+    <text x="640" y="762" fill="#a9bcd6">Depth</text>
+  </g>
+
+  <g transform="translate(920 210)">
+    <rect x="-70" y="0" width="140" height="560" rx="26" fill="#071a35" fill-opacity="0.75" stroke="#ffffff" stroke-opacity="0.22" stroke-width="3"/>
+    <rect x="-46" y="0" width="92" height="560" rx="18" fill="#0b2545" stroke="#2bb3bd" stroke-opacity="0.5" stroke-width="3"/>
+    <rect x="-70" y="120" width="140" height="26" fill="#c9a227" fill-opacity="0.9"/>
+    <rect x="-70" y="260" width="140" height="26" fill="#c9a227" fill-opacity="0.9"/>
+    <rect x="-70" y="400" width="140" height="26" fill="#c9a227" fill-opacity="0.9"/>
+    <line x1="0" y1="-46" x2="0" y2="560" stroke="#ffffff" stroke-opacity="0.55" stroke-width="6" stroke-linecap="round"/>
+    <path d="M0 560 L0 640" stroke="#2bb3bd" stroke-width="10" stroke-linecap="round"/>
+    <g stroke="#109aa6" stroke-width="4" stroke-linecap="round" stroke-opacity="0.9">
+      <line x1="-120" y1="470" x2="-74" y2="470"/>
+      <line x1="-132" y1="510" x2="-74" y2="510"/>
+      <line x1="74" y1="470" x2="120" y2="470"/>
+      <line x1="74" y1="510" x2="132" y2="510"/>
+    </g>
+  </g>
+
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700">
+    <rect x="806" y="806" width="300" height="70" rx="16" fill="#071a35" fill-opacity="0.7" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="806" y="806" width="8" height="70" rx="4" fill="#2bb3bd"/>
+    <text x="838" y="850" fill="#ffffff">Mud window set</text>
+  </g>
+  <g font-family="Inter, Helvetica, Arial, sans-serif" font-size="22" font-weight="700">
+    <rect x="150" y="806" width="360" height="70" rx="16" fill="#071a35" fill-opacity="0.7" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="150" y="806" width="8" height="70" rx="4" fill="#c9a227"/>
+    <text x="182" y="850" fill="#ffffff">Casing seats validated</text>
+  </g>
+</svg>

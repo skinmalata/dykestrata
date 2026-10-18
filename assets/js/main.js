@@ -186,6 +186,223 @@
   }
 
   /* ---------------------------------------------------------------------------
+   * 4b. Hero service slider — autoplay, pause on hover/focus, reduced-motion
+   *     aware, keyboard + swipe support.
+   * ------------------------------------------------------------------------ */
+  function initHeroSlider() {
+    var root = $("#heroSlider");
+    if (!root) return;
+
+    var slides = $$(".hero-slide", root);
+    var visuals = $$(".hero-slide-visual", root);
+    var dots = $$("[data-hero-dot]", root);
+    var prevBtn = $("[data-hero-prev]", root);
+    var nextBtn = $("[data-hero-next]", root);
+    var toggleBtn = $("[data-hero-toggle]", root);
+    var status = $("#heroStatus");
+    var total = slides.length;
+    var interval = parseInt(root.getAttribute("data-interval"), 10) || 6500;
+    var labels = [
+      "Seismic acquisition, processing and interpretation",
+      "Field development and prospectivity studies",
+      "Petrophysics",
+      "Pore pressure and geomechanics",
+    ];
+
+    var index = 0;
+    var timer = null;
+    var userPaused = false;
+    var focusPaused = false;
+    var hoverPaused = false;
+
+    root.style.setProperty("--hero-interval", interval + "ms");
+
+    if (reduceMotion) {
+      root.classList.add("is-off");
+      if (toggleBtn) toggleBtn.hidden = true;
+    }
+
+    function canRotate() {
+      return total > 1 && !reduceMotion && !userPaused;
+    }
+
+    function restartProgress(dot) {
+      var bar = dot.querySelector(".hero-dot__bar");
+      if (!bar) return;
+      bar.style.animation = "none";
+      /* force reflow so the animation restarts from zero */
+      void bar.offsetWidth;
+      bar.style.animation = "";
+    }
+
+    function render(announce) {
+      slides.forEach(function (slide, i) {
+        slide.classList.toggle("is-active", i === index);
+      });
+      visuals.forEach(function (visual, i) {
+        visual.classList.toggle("is-active", i === index);
+      });
+      dots.forEach(function (dot, i) {
+        var active = i === index;
+        dot.classList.toggle("is-active", active);
+        if (active) {
+          dot.setAttribute("aria-current", "true");
+          restartProgress(dot);
+        } else {
+          dot.removeAttribute("aria-current");
+        }
+      });
+
+      if (announce && status) {
+        status.textContent =
+          "Slide " + (index + 1) + " of " + total + ": " + labels[index] + ".";
+      }
+    }
+
+    function goTo(nextIndex, announce) {
+      index = ((nextIndex % total) + total) % total;
+      render(announce !== false);
+      syncPauseState();
+    }
+
+    function stopTimer() {
+      if (timer) {
+        window.clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      if (!canRotate() || document.hidden) return;
+      timer = window.setInterval(function () {
+        goTo(index + 1, false);
+      }, interval);
+    }
+
+    function syncPauseState() {
+      var paused = userPaused || focusPaused || hoverPaused;
+      root.classList.toggle("is-paused", paused && !reduceMotion);
+      if (paused) {
+        stopTimer();
+      } else {
+        startTimer();
+      }
+    }
+
+    function setPaused(paused) {
+      userPaused = paused;
+      if (toggleBtn) {
+        toggleBtn.classList.toggle("is-paused", paused);
+        toggleBtn.setAttribute("aria-pressed", paused ? "true" : "false");
+        toggleBtn.setAttribute(
+          "aria-label",
+          paused ? "Play slideshow" : "Pause slideshow"
+        );
+      }
+      syncPauseState();
+    }
+
+    if (total > 1) {
+      if (prevBtn) {
+        prevBtn.addEventListener("click", function () {
+          goTo(index - 1);
+        });
+      }
+      if (nextBtn) {
+        nextBtn.addEventListener("click", function () {
+          goTo(index + 1);
+        });
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener("click", function () {
+          goTo(parseInt(dot.getAttribute("data-hero-dot"), 10) || 0);
+        });
+      });
+
+      if (toggleBtn) {
+        toggleBtn.addEventListener("click", function () {
+          setPaused(!userPaused);
+        });
+      }
+
+      root.addEventListener("pointerenter", function (event) {
+        /* Only real hovering pointers pause — a tap on touch should not. */
+        if (event.pointerType && event.pointerType !== "mouse") return;
+        hoverPaused = true;
+        syncPauseState();
+      });
+      root.addEventListener("pointerleave", function () {
+        hoverPaused = false;
+        syncPauseState();
+      });
+      root.addEventListener("focusin", function () {
+        focusPaused = true;
+        syncPauseState();
+      });
+      root.addEventListener("focusout", function (event) {
+        if (!root.contains(event.relatedTarget)) {
+          focusPaused = false;
+          syncPauseState();
+        }
+      });
+
+      document.addEventListener("visibilitychange", function () {
+        syncPauseState();
+      });
+
+      root.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          goTo(index - 1);
+        } else if (event.key === "ArrowRight") {
+          event.preventDefault();
+          goTo(index + 1);
+        }
+      });
+
+      /* Basic horizontal swipe on the content area only. */
+      var swipeArea = $(".hero-grid", root);
+      var startX = null;
+      var startY = null;
+
+      if (swipeArea && window.PointerEvent) {
+        swipeArea.addEventListener(
+          "pointerdown",
+          function (event) {
+            /* Mouse drags are left alone so text can still be selected. */
+            if (event.pointerType === "mouse") return;
+            startX = event.clientX;
+            startY = event.clientY;
+          },
+          { passive: true }
+        );
+
+        swipeArea.addEventListener(
+          "pointerup",
+          function (event) {
+            if (startX === null || startY === null) return;
+            var dx = event.clientX - startX;
+            var dy = event.clientY - startY;
+            startX = null;
+            startY = null;
+            if (Math.abs(dx) > 60 && Math.abs(dy) < 45) {
+              goTo(dx < 0 ? index + 1 : index - 1);
+            }
+          },
+          { passive: true }
+        );
+      }
+    } else if (toggleBtn) {
+      toggleBtn.hidden = true;
+    }
+
+    render(false);
+    syncPauseState();
+  }
+
+  /* ---------------------------------------------------------------------------
    * 5. Back-to-top button
    * ------------------------------------------------------------------------ */
   function initBackToTop() {
@@ -473,6 +690,7 @@
     initHeader();
     initActiveNav();
     initReveal();
+    initHeroSlider();
     initBackToTop();
     initYear();
     initContactForm();

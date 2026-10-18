@@ -52,9 +52,9 @@ window.DYKESTRATA_CONFIG = {
     // Production URL — used for canonical links & sitemap. Update on launch.
     url: "https://www.dykestrata.example",
     defaultTitle:
-      "DYKESTRATA SERVICES LIMITED — Professional Business Services in Nigeria",
+      "DYKESTRATA SERVICES LIMITED — Subsurface Services in Nigeria",
     defaultDescription:
-      "DYKESTRATA SERVICES LIMITED (RC 9931890) is a Nigerian private company limited by shares, committed to building professional relationships and delivering dependable business services.",
+      "DYKESTRATA SERVICES LIMITED (RC 9931890) provides subsurface services in Nigeria: seismic acquisition, processing and interpretation, field development and prospectivity studies, petrophysics, and pore pressure and geomechanics.",
   },
 
   /* ---- Contact form ------------------------------------------------------

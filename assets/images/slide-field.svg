@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Abstract prospectivity contour map with ranked leads and well locations">
+  <defs>
+    <linearGradient id="s2bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a35"/>
+      <stop offset="0.6" stop-color="#0b2545"/>
+      <stop offset="1" stop-color="#123a6b"/>
+    </linearGradient>
+    <linearGradient id="s2blob" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#2f6bb5" stop-opacity="0.15"/>
+    </linearGradient>
+    <radialGradient id="s2glow" cx="0.8" cy="0.16" r="0.7">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2bb3bd" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="s2grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#s2bg)"/>
+  <rect width="1200" height="900" fill="url(#s2grid)"/>
+  <rect width="1200" height="900" fill="url(#s2glow)"/>
+
+  <g transform="translate(600 470)">
+    <path d="M-330 -170 C -200 -260, 40 -250, 210 -160 C 350 -86, 330 60, 200 140 C 60 226, -180 220, -300 130 C -400 56, -420 -100, -330 -170 Z" fill="url(#s2blob)"/>
+    <path d="M-250 -120 C -150 -190, 30 -186, 160 -116 C 270 -58, 254 46, 152 108 C 40 176, -140 170, -234 100 C -312 42, -324 -66, -250 -120 Z" fill="none" stroke="#2bb3bd" stroke-opacity="0.85" stroke-width="4"/>
+    <path d="M-170 -74 C -100 -122, 20 -118, 108 -72 C 180 -34, 170 30, 102 70 C 26 114, -94 110, -156 64 C -208 26, -216 -42, -170 -74 Z" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="3.5"/>
+    <path d="M-92 -34 C -54 -62, 12 -58, 58 -34 C 96 -14, 92 18, 54 38 C 12 60, -52 58, -84 32 C -110 12, -114 -20, -92 -34 Z" fill="none" stroke="#c9a227" stroke-opacity="0.95" stroke-width="4"/>
+  </g>
+
+  <g stroke="#ffffff" stroke-opacity="0.45" stroke-width="3" fill="none" stroke-dasharray="14 12">
+    <path d="M180 700 L400 540 L640 610 L880 430"/>
+  </g>
+
+  <g>
+    <g fill="#0b2545" stroke="#2bb3bd" stroke-width="5">
+      <circle cx="180" cy="700" r="24"/>
+      <circle cx="400" cy="540" r="24"/>
+      <circle cx="640" cy="610" r="24"/>
+    </g>
+    <g fill="#c9a227" stroke="#0b2545" stroke-width="5">
+      <circle cx="880" cy="430" r="30"/>
+    </g>
+    <g fill="#ffffff">
+      <circle cx="180" cy="700" r="7"/>
+      <circle cx="400" cy="540" r="7"/>
+      <circle cx="640" cy="610" r="7"/>
+      <circle cx="880" cy="430" r="9" fill="#0b2545"/>
+    </g>
+  </g>
+
+  <g opacity="0.95">
+    <rect x="120" y="140" width="330" height="128" rx="16" fill="#071a35" fill-opacity="0.7" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="120" y="140" width="8" height="128" rx="4" fill="#c9a227"/>
+    <text x="152" y="192" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#ffffff">Prospect A</text>
+    <text x="152" y="234" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" fill="#2bb3bd">Ranked 01 · Volumetrics</text>
+  </g>
+
+  <g opacity="0.95">
+    <rect x="770" y="700" width="330" height="128" rx="16" fill="#071a35" fill-opacity="0.7" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+    <rect x="770" y="700" width="8" height="128" rx="4" fill="#2bb3bd"/>
+    <text x="802" y="752" font-family="Inter, Helvetica, Arial, sans-serif" font-size="34" font-weight="800" fill="#ffffff">Development</text>
+    <text x="802" y="794" font-family="Inter, Helvetica, Arial, sans-serif" font-size="26" font-weight="600" fill="#c9a227">Phasing · Well spacing</text>
+  </g>
+</svg>

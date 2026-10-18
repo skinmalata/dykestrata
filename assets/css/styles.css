@@ -691,8 +691,21 @@ button {
 }
 
 /* -----------------------------------------------------------------------------
-   7. Hero
+   7. Hero (+ service slider)
    -------------------------------------------------------------------------- */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -714,9 +727,32 @@ button {
   pointer-events: none;
 }
 
-.hero > .container {
+/* Fine engineering grid + top gold hairline */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 35%, transparent 100%);
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 35%, transparent 100%);
+  pointer-events: none;
+}
+
+.hero .container {
   position: relative;
   z-index: 1;
+}
+
+.hero-slider {
+  --hero-interval: 6500ms;
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.4rem);
 }
 
 .hero-grid {
@@ -731,9 +767,12 @@ button {
   }
 }
 
-.hero h1 {
+.hero h1,
+.hero h2 {
   color: var(--white);
   margin-bottom: 0.5em;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
 }
 
 .hero .lede {
@@ -761,36 +800,181 @@ button {
   color: var(--teal-400);
 }
 
+/* --- Slide stacking ------------------------------------------------------ */
+.hero-copy {
+  position: relative;
+  min-width: 0;
+}
+
+.hero-slides {
+  display: grid;
+  min-width: 0;
+}
+
+.hero-slide {
+  grid-area: 1 / 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 700ms ease, transform 700ms ease, visibility 700ms;
+  will-change: opacity, transform;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
+.hero-visuals {
+  position: relative;
+  display: grid;
+  min-width: 0;
+}
+
+.hero-slide-visual {
+  grid-area: 1 / 1;
+  margin: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.975);
+  transition: opacity 800ms ease, transform 800ms ease, visibility 800ms;
+}
+
+.hero-slide-visual.is-active {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+
 .hero-visual {
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(7, 26, 53, 0.45);
 }
 
-.hero-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-top: 2.5rem;
-  padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
+/* --- Controls ------------------------------------------------------------ */
+.hero-controls {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.65rem;
 }
 
-.hero-stat dt,
-.hero-stat dd {
-  margin: 0;
-}
-
-.hero-stat strong {
-  display: block;
-  font-size: var(--fs-600);
+.hero-arrow,
+.hero-playtoggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--white);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: background var(--transition), border-color var(--transition),
+    transform var(--transition), color var(--transition);
 }
 
-.hero-stat span {
-  font-size: var(--fs-300);
-  color: var(--text-invert-muted);
+.hero-arrow svg,
+.hero-playtoggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.hero-arrow:hover,
+.hero-playtoggle:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.hero-arrow:focus-visible,
+.hero-playtoggle:focus-visible,
+.hero-dot:focus-visible {
+  outline: 2px solid var(--teal-400);
+  outline-offset: 3px;
+}
+
+.hero-playtoggle {
+  margin-left: auto;
+}
+
+.hero-playtoggle[hidden] {
+  display: none !important;
+}
+
+.hero-playtoggle .icon-play {
+  display: none;
+}
+
+.hero-playtoggle.is-paused .icon-play {
+  display: block;
+}
+
+.hero-playtoggle.is-paused .icon-pause {
+  display: none;
+}
+
+.hero-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-inline: 0.35rem;
+}
+
+.hero-dot {
+  position: relative;
+  width: 30px;
+  height: 6px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.24);
+  overflow: hidden;
+  cursor: pointer;
+  transition: width 350ms cubic-bezier(0.22, 0.61, 0.36, 1),
+    background 350ms ease;
+}
+
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+.hero-dot.is-active {
+  width: 76px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.hero-dot__bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--teal-400), var(--gold-500));
+}
+
+.hero-dot.is-active .hero-dot__bar {
+  animation: heroProgress var(--hero-interval) linear forwards;
+}
+
+.hero-slider.is-paused .hero-dot.is-active .hero-dot__bar,
+.hero-slider.is-off .hero-dot.is-active .hero-dot__bar {
+  animation-play-state: paused;
+}
+
+@keyframes heroProgress {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 /* -----------------------------------------------------------------------------
@@ -1634,11 +1818,440 @@ textarea[aria-invalid="true"] {
   .site-footer,
   .back-to-top,
   .nav-toggle,
+  .hero-controls,
   .btn {
     display: none !important;
   }
 
   body {
     color: #000;
+  }
+}
+
+/* -----------------------------------------------------------------------------
+   23. Premium polish pass
+   -----------------------------------------------------------------------------
+   Refinements layered on top of the base system: richer controls, hairline
+   gradients, micro-interactions and typographic rhythm. All of it degrades
+   cleanly — nothing here is required to read the page.
+   -------------------------------------------------------------------------- */
+
+/* --- Typographic rhythm --------------------------------------------------- */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}
+
+/* --- Header: deeper glass, gradient hairline, nav indicator --------------- */
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(16, 154, 166, 0.45),
+    rgba(201, 162, 39, 0.4),
+    transparent
+  );
+  opacity: 0;
+  transition: opacity var(--transition);
+  pointer-events: none;
+}
+
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: saturate(200%) blur(18px);
+  -webkit-backdrop-filter: saturate(200%) blur(18px);
+  border-bottom-color: transparent;
+  box-shadow: 0 18px 40px -30px rgba(7, 26, 53, 0.75);
+}
+
+.site-header.is-scrolled::after {
+  opacity: 1;
+}
+
+@media (min-width: 941px) {
+  .primary-nav a:not(.btn) {
+    position: relative;
+  }
+
+  .primary-nav a:not(.btn)::after {
+    content: "";
+    position: absolute;
+    left: 0.85rem;
+    right: 0.85rem;
+    bottom: 0.3rem;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--teal-500), var(--gold-500));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--transition);
+  }
+
+  .primary-nav a:not(.btn):hover::after,
+  .primary-nav a[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+}
+
+/* --- Buttons: gradient lift, sheen sweep ---------------------------------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.16),
+    rgba(255, 255, 255, 0) 62%
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 12px 26px -18px rgba(7, 26, 53, 0.9);
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -55%;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.34),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 650ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+
+.btn:hover::after {
+  left: 120%;
+}
+
+.btn:active::after,
+.btn.is-loading::after {
+  display: none;
+}
+
+.btn--outline-light,
+.btn--ghost {
+  background-image: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0) 62%
+  );
+}
+
+/* --- Eyebrow: rule marker ------------------------------------------------- */
+.eyebrow {
+  position: relative;
+  padding-left: 2.15rem;
+}
+
+.eyebrow::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.5rem;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--teal-500), var(--gold-500));
+  transform: translateY(-50%);
+}
+
+.section-head--center .eyebrow {
+  padding-left: 0;
+  padding-top: 1.45rem;
+}
+
+.section-head--center .eyebrow::before {
+  left: 50%;
+  top: 0;
+  width: 2.75rem;
+  transform: translateX(-50%);
+}
+
+/* --- Sections: soft washes ------------------------------------------------ */
+.section--alt {
+  position: relative;
+  background: linear-gradient(180deg, var(--slate-50), var(--white));
+}
+
+.section--alt::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      45% 55% at 88% 6%,
+      rgba(16, 154, 166, 0.1),
+      transparent 70%
+    ),
+    radial-gradient(
+      40% 55% at 4% 94%,
+      rgba(47, 107, 181, 0.1),
+      transparent 70%
+    );
+  pointer-events: none;
+}
+
+.section--alt > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Cards: accent edge and icon lift ------------------------------------- */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: linear-gradient(90deg, var(--teal-500), var(--gold-500));
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 500ms cubic-bezier(0.22, 0.61, 0.36, 1);
+  pointer-events: none;
+}
+
+.card--interactive:hover::before,
+.card:focus-within::before {
+  transform: scaleX(1);
+}
+
+.card-icon {
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.card--interactive:hover .card-icon {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 26px -16px rgba(14, 124, 134, 0.95);
+}
+
+.stat {
+  transition: transform var(--transition), box-shadow var(--transition),
+    border-color var(--transition);
+}
+
+.stat:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(16, 154, 166, 0.4);
+}
+
+/* --- CTA band: deeper gradient + engineering grid -------------------------- */
+.cta-band {
+  background: linear-gradient(
+    135deg,
+    var(--navy-900) 0%,
+    var(--navy-800) 48%,
+    var(--teal-700) 160%
+  );
+}
+
+.cta-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(75% 75% at 18% 15%, #000, transparent 78%);
+  mask-image: radial-gradient(75% 75% at 18% 15%, #000, transparent 78%);
+  pointer-events: none;
+}
+
+/* --- Interior page hero: matching glow + closing hairline ----------------- */
+.page-hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    150deg,
+    var(--navy-900),
+    var(--navy-800) 55%,
+    #0f335f
+  );
+}
+
+.page-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+      circle at 78% 12%,
+      rgba(16, 154, 166, 0.35),
+      transparent 55%
+    ),
+    radial-gradient(circle at 6% 96%, rgba(47, 107, 181, 0.4), transparent 52%);
+  pointer-events: none;
+}
+
+.page-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(43, 179, 189, 0.55),
+    rgba(201, 162, 39, 0.45),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.page-hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Footer: glow hairline + growing link underlines ---------------------- */
+.site-footer {
+  background: linear-gradient(180deg, var(--navy-900), #061530);
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(43, 179, 189, 0.55),
+    rgba(201, 162, 39, 0.45),
+    transparent
+  );
+  pointer-events: none;
+}
+
+.site-footer {
+  position: relative;
+}
+
+.footer-links a,
+.footer-contact a,
+.footer-legal a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0 1px;
+  transition: color var(--transition), background-size var(--transition);
+}
+
+.footer-links a:hover,
+.footer-contact a:hover,
+.footer-legal a:hover {
+  background-size: 100% 1px;
+}
+
+/* --- Figures: slow parallax-style zoom ------------------------------------ */
+.split figure img {
+  transition: transform 750ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.split figure:hover img {
+  transform: scale(1.04);
+}
+
+/* --- Dividers: fading hairline -------------------------------------------- */
+.divider {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--border-strong) 18%,
+    var(--border-strong) 82%,
+    transparent
+  );
+}
+
+/* --- Scroll-reveal choreography ------------------------------------------- */
+.reveal {
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.grid > .reveal:nth-child(2) {
+  --reveal-delay: 90ms;
+}
+.grid > .reveal:nth-child(3) {
+  --reveal-delay: 180ms;
+}
+.grid > .reveal:nth-child(4) {
+  --reveal-delay: 270ms;
+}
+.grid > .reveal:nth-child(5) {
+  --reveal-delay: 360ms;
+}
+.grid > .reveal:nth-child(6) {
+  --reveal-delay: 450ms;
+}
+
+/* --- Scrollbar ------------------------------------------------------------ */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--slate-400) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 11px;
+  height: 11px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--slate-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--slate-400);
+  border: 2px solid var(--slate-100);
+  border-radius: var(--radius-pill);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--slate-500);
+}
+
+/* --- Reduced motion: static slider state ---------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide,
+  .hero-slide-visual {
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .hero-dot.is-active .hero-dot__bar {
+    animation: none !important;
+    width: 100%;
+  }
+
+  .reveal {
+    transition-delay: 0ms !important;
+  }
+
+  .split figure:hover img {
+    transform: none;
   }
 }

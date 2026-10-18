@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="1200" height="900" role="img" aria-label="Abstract seismic section with reflectors and acquisition traces">
+  <defs>
+    <linearGradient id="s1bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071a35"/>
+      <stop offset="0.6" stop-color="#0b2545"/>
+      <stop offset="1" stop-color="#123a6b"/>
+    </linearGradient>
+    <linearGradient id="s1panel" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e7c86" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#0b2545" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="s1event" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#109aa6" stop-opacity="0.35"/>
+      <stop offset="0.5" stop-color="#2bb3bd" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#2f6bb5" stop-opacity="0.4"/>
+    </linearGradient>
+    <radialGradient id="s1glow" cx="0.82" cy="0.14" r="0.7">
+      <stop offset="0" stop-color="#2bb3bd" stop-opacity="0.5"/>
+      <stop offset="1" stop-color="#2bb3bd" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="s1grid" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M60 0H0v60" fill="none" stroke="#ffffff" stroke-opacity="0.06" stroke-width="1"/>
+    </pattern>
+    <clipPath id="s1clip">
+      <rect x="120" y="230" width="960" height="470" rx="18"/>
+    </clipPath>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#s1bg)"/>
+  <rect width="1200" height="900" fill="url(#s1grid)"/>
+  <rect width="1200" height="900" fill="url(#s1glow)"/>
+
+  <rect x="120" y="230" width="960" height="470" rx="18" fill="url(#s1panel)" stroke="#ffffff" stroke-opacity="0.18" stroke-width="2"/>
+
+  <g clip-path="url(#s1clip)" fill="none" stroke="url(#s1event)" stroke-width="4" stroke-linecap="round">
+    <path d="M120 320 C 320 300, 430 350, 600 330 S 900 292, 1080 322"/>
+    <path d="M120 386 C 300 372, 450 424, 620 396 S 920 356, 1080 388"/>
+    <path d="M120 452 C 310 440, 470 500, 640 462 S 930 418, 1080 452"/>
+    <path d="M120 524 C 300 508, 460 574, 630 532 S 920 486, 1080 522"/>
+    <path d="M120 596 C 320 584, 470 646, 650 604 S 930 560, 1080 594"/>
+    <path d="M120 662 C 310 650, 460 706, 640 668 S 930 626, 1080 660"/>
+  </g>
+
+  <g clip-path="url(#s1clip)" fill="none" stroke="#ffffff" stroke-opacity="0.55" stroke-width="2.5">
+    <path d="M330 240 C 400 300, 470 470, 520 700"/>
+    <path d="M520 240 C 560 320, 600 500, 620 700"/>
+    <path d="M740 240 C 700 320, 660 500, 640 700"/>
+    <path d="M920 240 C 850 310, 780 480, 740 700"/>
+  </g>
+
+  <g stroke="#c9a227" stroke-width="4" stroke-linecap="round" stroke-opacity="0.9">
+    <line x1="120" y1="176" x2="1080" y2="176"/>
+  </g>
+  <g fill="#0b2545" stroke="#c9a227" stroke-width="4">
+    <circle cx="270" cy="176" r="15"/>
+    <circle cx="520" cy="176" r="15"/>
+    <circle cx="770" cy="176" r="15"/>
+    <circle cx="1000" cy="176" r="15"/>
+  </g>
+  <g fill="#2bb3bd">
+    <circle cx="270" cy="176" r="6"/>
+    <circle cx="520" cy="176" r="6"/>
+    <circle cx="770" cy="176" r="6"/>
+    <circle cx="1000" cy="176" r="6"/>
+  </g>
+
+  <g fill="none" stroke="#2bb3bd" stroke-width="3" stroke-opacity="0.85" stroke-linecap="round">
+    <path d="M150 776 q 14 -34 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0"/>
+    <path d="M560 776 q 14 -46 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0" stroke-opacity="0.6"/>
+    <path d="M880 776 q 14 -26 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0 t 28 0" stroke-opacity="0.4"/>
+  </g>
+
+  <g opacity="0.55">
+    <circle cx="1035" cy="760" r="90" fill="none" stroke="#2bb3bd" stroke-opacity="0.35" stroke-width="2"/>
+    <circle cx="1035" cy="760" r="58" fill="none" stroke="#2bb3bd" stroke-opacity="0.5" stroke-width="2"/>
+  </g>
+</svg>
