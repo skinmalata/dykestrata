@@ -33,7 +33,8 @@ published publicly. Nothing unverified has been presented as fact.
       evidence can be provided.
 
 ### Contact details (currently placeholders in `assets/js/config.js`)
-- [ ] **Business email address** (e.g. `info@…`).
+- [x] **Business email address** — `dykestrata@gmail.com` (set in `config.js`
+      and in the footer/contact markup of every page).
 - [ ] **Business telephone number**.
 - [ ] **Office address** and whether it should be public.
 - [ ] **Business hours**.

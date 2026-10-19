@@ -29,7 +29,7 @@ window.DYKESTRATA_CONFIG = {
    * Leave a value as "" until the company confirms it. The site will show a
    * clearly-marked placeholder instead of inventing information.            */
   contact: {
-    email: "", // e.g. "info@dykestrata.com"            <-- TO BE PROVIDED
+    email: "dykestrata@gmail.com", // confirmed by the company
     phone: "", // e.g. "+234 800 000 0000"              <-- TO BE PROVIDED
     whatsapp: "", // e.g. "2348000000000" (digits only)  <-- TO BE PROVIDED
     addressLine: "", // e.g. "12 Example Street, Lagos"   <-- TO BE PROVIDED
