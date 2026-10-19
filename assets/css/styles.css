@@ -784,22 +784,6 @@ button {
   margin-top: 1.75rem;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  margin-bottom: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.07);
-  font-size: var(--fs-300);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--teal-400);
-}
-
 /* --- Slide stacking ------------------------------------------------------ */
 .hero-copy {
   position: relative;
