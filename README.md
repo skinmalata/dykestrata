@@ -14,9 +14,9 @@ Pages Function provides a secure contact-form endpoint.
 
 | Deliverable | Status |
 | --- | --- |
-| Homepage (`index.html`) | Implemented (sliding hero = the 4 core services) |
+| Homepage (`index.html`) | Implemented (sliding hero = the 4 core subsurface services; 6 service cards) |
 | About Us (`about.html`) | Implemented |
-| Services (`services.html`) | Implemented (4 core subsurface service lines published) |
+| Services (`services.html`) | Implemented (6 service lines: 4 core subsurface + Environmental + Oil &amp; Gas) |
 | Industries (`industries.html`) | Built but **deactivated** (`noindex`, excluded from nav & sitemap) |
 | Contact (`contact.html`) with enquiry form | Implemented (delivery requires credentials — see §4) |
 | Privacy Policy (`privacy.html`) | Template — **requires legal review** |
@@ -148,10 +148,12 @@ most edits happen in one file.
 **Page copy** (headings, paragraphs, cards) is edited directly in the relevant
 `.html` file. Search for the visible text you want to change.
 
-**Services** — the four core subsurface service lines are published in
-`services.html` (with summary cards in `index.html`). The scope-of-work and
-deliverable wording in each block is a first draft: ask the company to review
-and correct it before launch.
+**Services** — six service lines are published in `services.html` (with summary
+cards in `index.html`): the four confirmed subsurface lines (seismic, field
+studies, petrophysics, pore pressure and geomechanics) plus Environmental
+Services and Oil and Gas Services (facilities &amp; project support). The
+scope-of-work and deliverable wording in every block is a first draft: ask the
+company to review and correct it before launch.
 
 **Homepage hero slider** — the four slides are the `.hero-slide` blocks in
 `index.html`, each paired (in order) with a figure in `.hero-visuals`

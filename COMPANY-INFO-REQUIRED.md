@@ -18,8 +18,11 @@ published publicly. Nothing unverified has been presented as fact.
 - [x] **Main business activities and services** — confirmed core service lines
       published on `services.html` and `index.html`: Seismic Acquisition,
       Processing and Interpretation; Field Development & Prospectivity
-      Studies; Petrophysics; Pore Pressure and Geomechanics. Scope/deliverable
-      wording is a first draft — ask the company to review it.
+      Studies; Petrophysics; Pore Pressure and Geomechanics. Two further lines
+      requested and added as **unconfirmed drafts**: Environmental Services
+      (`#svc-5`) and Oil and Gas Services — Facilities & Project Support
+      (`#svc-6`). Scope/deliverable wording is a first draft for all six — ask
+      the company to review it.
 - [ ] **Target customers and industries** — required before publishing
       `industries.html`.
 - [ ] **Mission, vision, and core values** — for approval on `about.html`.

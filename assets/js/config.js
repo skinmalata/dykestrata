@@ -54,7 +54,7 @@ window.DYKESTRATA_CONFIG = {
     defaultTitle:
       "DYKESTRATA SERVICES LIMITED — Subsurface Services in Nigeria",
     defaultDescription:
-      "DYKESTRATA SERVICES LIMITED (RC 9931890) provides subsurface services in Nigeria: seismic acquisition, processing and interpretation, field development and prospectivity studies, petrophysics, and pore pressure and geomechanics.",
+      "DYKESTRATA SERVICES LIMITED (RC 9931890) provides subsurface, environmental and oil and gas services in Nigeria: seismic acquisition, processing and interpretation; field development and prospectivity studies; petrophysics; pore pressure and geomechanics; environmental services; and oil and gas facilities and project support.",
   },
 
   /* ---- Contact form ------------------------------------------------------
