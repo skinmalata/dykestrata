@@ -54,12 +54,8 @@
 
   <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="DYKESTRATA SERVICES LIMITED — home">
-        <img class="brand-mark" src="assets/images/logo.svg" alt="" width="42" height="42">
-        <span class="brand-text">
-          <span class="brand-name" data-bind="company.legalName">DYKESTRATA SERVICES LIMITED</span>
-          <span class="brand-sub">RC <span data-bind="company.registrationNumber">9931890</span></span>
-        </span>
+      <a class="brand home-brand" href="index.html" aria-label="DYKESTRATA Geoenergy Services — home">
+        <img src="assets/images/home-brand-reference.png" alt="Dykestrata Geoenergy Services Ltd" width="365" height="82">
       </a>
 
       <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
@@ -70,178 +66,52 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="services.html">Services</a></li>
-          <!-- Industries link is intentionally disabled until sectors are confirmed.
-               Uncomment and activate industries.html when content is approved.
-          <li><a href="industries.html">Industries</a></li>
-          -->
+          <li><a href="services.html">Services <span aria-hidden="true">⌄</span></a></li>
+          <li><a href="about.html#projects">Projects</a></li>
+          <li><a href="about.html#insights">Insights</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
-        <a class="btn btn--primary nav-cta" href="contact.html#enquiry">Request a Quote</a>
+        <a class="btn btn--primary nav-cta" href="contact.html#enquiry">Discuss Your Project <span aria-hidden="true">→</span></a>
       </nav>
     </div>
   </header>
 
   <main id="main">
 
-    <!-- ================= HERO (SLIDER) ================= -->
-    <section class="hero hero--slider" aria-label="Core subsurface services">
-      <div class="container">
-        <h1 class="visually-hidden">DYKESTRATA SERVICES LIMITED — Subsurface services in Nigeria</h1>
-
-        <div class="hero-slider" id="heroSlider" data-interval="6500">
-          <div class="hero-grid">
-            <div class="hero-copy">
-              <div class="hero-slides">
-                <article class="hero-slide is-active" role="group" aria-label="Slide 1 of 4">
-                  <h2>See the subsurface clearly, before you drill.</h2>
-                  <p class="lede">
-                    Seismic acquisition, processing and interpretation that turns
-                    field data into a trustworthy image of structure, stratigraphy
-                    and prospectivity.
-                  </p>
-                  <div class="btn-row">
-                    <a class="btn btn--on-dark btn--lg" href="contact.html#enquiry">Discuss a Survey</a>
-                    <a class="btn btn--outline-light btn--lg" href="services.html#svc-1">Service Detail</a>
-                  </div>
-                </article>
-
-                <article class="hero-slide" role="group" aria-label="Slide 2 of 4">
-                  <h2>Develop the field on evidence, not precedent.</h2>
-                  <p class="lede">
-                    Field development and prospectivity studies that rank the
-                    leads, test the concepts and optimise how the resource base
-                    is exploited.
-                  </p>
-                  <div class="btn-row">
-                    <a class="btn btn--on-dark btn--lg" href="contact.html#enquiry">Discuss a Study</a>
-                    <a class="btn btn--outline-light btn--lg" href="services.html#svc-2">Service Detail</a>
-                  </div>
-                </article>
-
-                <article class="hero-slide" role="group" aria-label="Slide 3 of 4">
-                  <h2>Rock and fluid properties you can trust.</h2>
-                  <p class="lede">
-                    Petrophysical evaluation of logs, cores and test data —
-                    porosity, permeability, saturation, net pay and reservoir
-                    zonation, calibrated and auditable.
-                  </p>
-                  <div class="btn-row">
-                    <a class="btn btn--on-dark btn--lg" href="contact.html#enquiry">Discuss an Evaluation</a>
-                    <a class="btn btn--outline-light btn--lg" href="services.html#svc-3">Service Detail</a>
-                  </div>
-                </article>
-
-                <article class="hero-slide" role="group" aria-label="Slide 4 of 4">
-                  <h2>Drill the pressure plan, not the surprise.</h2>
-                  <p class="lede">
-                    Pore pressure prediction, wellbore stability and mud weight
-                    windows that keep the well safe and the drilling programme
-                    on schedule.
-                  </p>
-                  <div class="btn-row">
-                    <a class="btn btn--on-dark btn--lg" href="contact.html#enquiry">Discuss a Pressure Study</a>
-                    <a class="btn btn--outline-light btn--lg" href="services.html#svc-4">Service Detail</a>
-                  </div>
-                </article>
-              </div>
-            </div>
-
-            <div class="hero-visuals">
-              <figure class="hero-visual hero-slide-visual is-active">
-                <img src="assets/images/slide-seismic.svg" alt="Abstract seismic section showing interpreted reflectors and an acquisition spread" width="1200" height="900" fetchpriority="high">
-              </figure>
-              <figure class="hero-visual hero-slide-visual">
-                <img src="assets/images/slide-field.svg" alt="Abstract prospectivity contour map with ranked leads and well locations" width="1200" height="900" loading="lazy">
-              </figure>
-              <figure class="hero-visual hero-slide-visual">
-                <img src="assets/images/slide-petro.svg" alt="Abstract well log tracks showing lithology, porosity and saturation curves" width="1200" height="900" loading="lazy">
-              </figure>
-              <figure class="hero-visual hero-slide-visual">
-                <img src="assets/images/slide-ppgm.svg" alt="Abstract pore pressure and fracture gradient chart beside a wellbore schematic" width="1200" height="900" loading="lazy">
-              </figure>
-            </div>
-          </div>
-
-          <div class="hero-controls">
-            <button class="hero-arrow" type="button" data-hero-prev aria-label="Previous slide">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
-            </button>
-
-            <div class="hero-dots" role="group" aria-label="Choose a slide">
-              <button class="hero-dot is-active" type="button" data-hero-dot="0" aria-label="Slide 1: Seismic acquisition, processing and interpretation" aria-current="true"><span class="hero-dot__bar"></span></button>
-              <button class="hero-dot" type="button" data-hero-dot="1" aria-label="Slide 2: Field development and prospectivity studies"><span class="hero-dot__bar"></span></button>
-              <button class="hero-dot" type="button" data-hero-dot="2" aria-label="Slide 3: Petrophysics"><span class="hero-dot__bar"></span></button>
-              <button class="hero-dot" type="button" data-hero-dot="3" aria-label="Slide 4: Pore pressure and geomechanics"><span class="hero-dot__bar"></span></button>
-            </div>
-
-            <button class="hero-arrow" type="button" data-hero-next aria-label="Next slide">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
-            </button>
-
-            <button class="hero-playtoggle" type="button" data-hero-toggle aria-label="Pause slideshow" aria-pressed="false">
-              <svg class="icon-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M9 5v14M15 5v14"/></svg>
-              <svg class="icon-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4.5 19 12 7 19.5Z"/></svg>
-            </button>
-          </div>
-        </div>
-
-        <p class="visually-hidden" id="heroStatus" aria-live="polite">Slide 1 of 4: Seismic acquisition, processing and interpretation.</p>
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="home-hero__backdrop" aria-hidden="true"><img src="assets/images/home-hero-reference.png" alt="" fetchpriority="high"></div>
+      <div class="home-hero__content">
+        <p class="home-hero__kicker">INTEGRATED GEOSCIENCE <i></i> PETROPHYSICS <i></i> WELL LOG ANALYSIS <i></i> SEISMIC SERVICES <i></i> ENGINEERING SOLUTIONS</p>
+        <h1 id="home-title">Unlocking Subsurface<br>Potential.<br><span>Delivering Geoscience<br>Solutions.</span></h1>
+        <p class="home-hero__description">Dykestrata Geoenergy Services Ltd delivers integrated geoscience, petrophysical, well log analysis, seismic, and engineering solutions to support better subsurface understanding and informed decisions across the energy industry.</p>
+        <div class="btn-row"><a class="btn home-btn home-btn--green" href="services.html">Explore Our Services <span>→</span></a><a class="btn home-btn home-btn--outline" href="contact.html">Contact Our Team</a></div>
       </div>
-
-      <noscript>
-        <style>
-          .hero-slides, .hero-visuals { display: block !important; }
-          .hero-slide, .hero-slide-visual { position: static !important; opacity: 1 !important; visibility: visible !important; margin-bottom: 2.5rem; }
-          .hero-controls { display: none !important; }
-        </style>
-      </noscript>
+      <div class="home-hero__labels" aria-hidden="true"><span>Top Reservoir</span><span>Fault</span></div>
     </section>
 
-    <!-- ================= INTRODUCTION ================= -->
-    <section class="section" aria-labelledby="intro-title">
-      <div class="container">
-        <div class="split split--wide-right">
-          <figure style="margin:0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-md);">
-            <img src="assets/images/about.svg" alt="Abstract illustration representing company structure and planning" width="900" height="900" loading="lazy">
-          </figure>
-          <div class="reveal">
-            <span class="eyebrow">Who We Are</span>
-            <h2 id="intro-title">A Nigerian company built on dependable service.</h2>
-            <p>
-              DYKESTRATA SERVICES LIMITED is a private company limited by shares,
-              incorporated in the Federal Republic of Nigeria under the Companies
-              and Allied Matters Act 2020. Our registration number is
-              <strong>RC 9931890</strong>.
-            </p>
-            <p>
-              We provide subsurface, environmental and oil and gas services to
-              operators and asset owners — covering seismic, field development
-              and prospectivity studies, petrophysics, and pore pressure and
-              geomechanics, with environmental services and facilities and
-              project support around them — working from the data you already
-              have to the decisions you need to make.
-            </p>
-            <a class="text-link" href="about.html">Learn more about us</a>
-          </div>
-        </div>
-      </div>
+    <section class="home-services" aria-label="Our technical services">
+      <a href="services.html#svc-1"><b class="service-symbol">⌁</b><span><strong>GEOSCIENCE</strong><small>Understand the geology</small></span></a>
+      <a href="services.html#svc-3"><b class="service-symbol service-symbol--green">▥</b><span><strong>PETROPHYSICS</strong><small>Evaluate the reservoir</small></span></a>
+      <a href="services.html#svc-3"><b class="service-symbol">♙</b><span><strong>WELL LOG ANALYSIS</strong><small>Interpret the data</small></span></a>
+      <a href="services.html#svc-1"><b class="service-symbol service-symbol--red">∿</b><span><strong>SEISMIC SERVICES</strong><small>Reveal the structure</small></span></a>
+      <a href="services.html#svc-6"><b class="service-symbol">⚙</b><span><strong>ENGINEERING SOLUTIONS</strong><small>Enable the development</small></span></a>
     </section>
 
-    <!-- ================= SERVICES OVERVIEW ================= -->
-    <section class="section section--alt" aria-labelledby="services-title">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Our Services</span>
-          <h2 id="services-title">Subsurface services that turn data into decisions.</h2>
-          <p class="lede">
-            Six connected service lines covering the life of a field — from the
-            seismic image, to the rock and fluid properties, to the plan for
-            developing the resource safely and economically, with the
-            environmental, facilities and project support around it.
-          </p>
-        </div>
+    <section class="home-panels" aria-label="About Dykestrata and industries we serve">
+      <article class="home-approach">
+        <div><span class="home-eyebrow">OUR APPROACH</span><h2>Integrated Expertise.<br>Better Decisions.</h2><p>We combine geological, geophysical, petrophysical and engineering insights to provide clear, practical and reliable subsurface solutions for our clients.</p><a class="btn home-btn home-btn--outline" href="about.html">Learn More About Us <span>→</span></a></div>
+        <ul><li>Technical Excellence</li><li>Integrity &amp; Confidentiality</li><li>Innovation &amp; Technology</li><li>Collaboration &amp; Partnership</li><li>Client Focus</li><li>Safety &amp; Responsibility</li></ul>
+      </article>
+      <article class="home-industries">
+        <div class="home-industry-intro"><span class="home-eyebrow">INDUSTRIES WE SERVE</span><h2>Supporting the Energy Sector Across Africa and Beyond</h2><p>We work with operators, service companies, consultants, research institutions and energy organisations to deliver value through technical expertise and collaboration.</p><a class="btn home-btn home-btn--blue" href="industries.html">Our Industries <span>→</span></a></div>
+        <ul class="industry-list"><li><span>🛢</span><b>Oil and Gas Exploration &amp; Production<small>Subsurface evaluation and exploration support</small></b><i>›</i></li><li><span>👷🏾</span><b>Oilfield Service Companies<small>Interpretation support and technical subcontracting</small></b><i>›</i></li><li><span>🏭</span><b>Geophysical and Seismic Contractors<small>Seismic interpretation and data evaluation</small></b><i>›</i></li><li><span>🏙</span><b>Energy and Engineering Consultancies<small>Multidisciplinary technical support</small></b><i>›</i></li><li><span>👩🏽‍🔬</span><b>Research and Technical Institutions<small>Collaboration and geoscience research</small></b><i>›</i></li></ul>
+      </article>
+    </section>
+    <div class="home-signoff"><span></span><b>DYKESTRATA GEOENERGY SERVICES LTD</b><span></span><small>UNDERSTANDING THE SUBSURFACE. ENABLING ENERGY SOLUTIONS.</small></div>
 
+    <section class="section section--alt home-more" aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-head"><span class="eyebrow">Our Services</span><h2 id="services-title">Subsurface services that turn data into decisions.</h2><p class="lede">Six connected service lines supporting safe, informed development across the life of an asset.</p></div>
         <div class="grid grid-3">
           <article class="card card--interactive reveal">
             <span class="card-icon" aria-hidden="true">
