@@ -351,19 +351,19 @@ button {
 .service-symbol--green { color:#92bd37; }.service-symbol--red { color:#ff292e; }
 .home-services span { display:grid;gap:2px; }.home-services strong { font-size:.79rem;white-space:nowrap; }.home-services small { color:#385176;font-size:.76rem;white-space:nowrap; }
 .home-panels { display:grid;grid-template-columns:45% 55%;min-height:265px; }
-.home-panels h2 { margin:.35rem 0 .7rem;font-size:clamp(1.35rem,1.6vw,1.8rem);line-height:1.1; }
-.home-panels p { font-size:.85rem;line-height:1.5;margin-bottom:.85rem;max-width:430px; }
+.home-panels h2 { margin:.35rem 0 .7rem;font-size:clamp(1.5rem,1.7vw,1.9rem);line-height:1.1; }
+.home-panels p { font-size:.92rem;line-height:1.55;margin-bottom:1rem;max-width:430px; }
 .home-approach { position:relative;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;gap:2.3rem;background-color:#07264a;color:white;padding:26px clamp(30px,4.5vw,78px);overflow:hidden; }
 .home-approach:before { content:"";position:absolute;inset:0;opacity:.12;background:repeating-radial-gradient(ellipse at 8% 55%,transparent 0 37px,#7096b9 38px 39px,transparent 40px 63px);pointer-events:none; }
 .home-approach>* { position:relative; }.home-approach h2 { color:white; }.home-approach p { color:#e0e9f3; }
 .home-eyebrow { color:#9dc72c;font-size:.72rem;letter-spacing:.06em;font-weight:700; }
-.home-approach ul { list-style:none;padding:0;margin:0;font-size:.75rem;font-weight:600; }
+.home-approach ul { list-style:none;padding:0;margin:0;font-size:.84rem;font-weight:600; }
 .home-approach li { margin:.47rem 0; }.home-approach li:before { content:"✓";display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#7db32d;color:#062348;margin-right:12px;font-weight:900; }
 .home-industries { display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:clamp(20px,3vw,52px);background:#f1f5f8;padding:20px clamp(30px,4.5vw,78px); }
 .home-industry-intro { border-right:1px solid #cbd6e1;padding-right:clamp(18px,3vw,48px); }
 .home-industry-intro h2 { color:#0c2c63;max-width:340px; }.home-industry-intro p { color:#314e75; }
-.industry-list { list-style:none;padding:0;margin:0; }.industry-list li { display:grid;grid-template-columns:54px 1fr 12px;align-items:center;gap:12px;min-height:48px;border-bottom:1px solid #d7e0e9;color:#0c2d61;font-size:.72rem; }
-.industry-list li:last-child { border:0; }.industry-list li>span { width:46px;height:46px;display:grid;place-items:center;border-radius:50%;background:#d9e6ee;font-size:1.45rem;overflow:hidden; }.industry-list li>b { font-weight:700; }.industry-list small { display:block;color:#405b7e;font-size:.67rem;font-weight:400; }.industry-list li>i { font-size:1.25rem;font-style:normal; }
+.industry-list { list-style:none;padding:0;margin:0; }.industry-list li { display:grid;grid-template-columns:54px 1fr 12px;align-items:center;gap:12px;min-height:54px;border-bottom:1px solid #d7e0e9;color:#0c2d61;font-size:.82rem; }
+.industry-list li:last-child { border:0; }.industry-list li>span { width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:#d9e6ee;font-size:1.5rem;overflow:hidden; }.industry-list li>b { font-weight:700; }.industry-list small { display:block;color:#405b7e;font-size:.75rem;font-weight:400; }.industry-list li>i { font-size:1.25rem;font-style:normal; }
 .home-signoff { min-height:59px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;padding:9px 20px 12px;color:#153566;position:relative;background:linear-gradient(176deg,#f1f5f8 0%,white 48%,white 100%);text-align:center; }
 .home-signoff span { width:62px;height:1px;background:#5e8b35; }.home-signoff b { font-size:.7rem;letter-spacing:.3em; }.home-signoff small { flex-basis:100%;font-size:.55rem;letter-spacing:.42em;color:#4d6d9b;margin-top:-10px; }
 .home-more { padding-top:5rem; }
@@ -383,9 +383,9 @@ button {
   .home-services { min-height:97px; padding-block:0; background:#fff url("../images/home-services-reference.png") center/100% 100% no-repeat; }
   .home-services a { color:transparent; }
   .home-services a * { opacity:0; }
-  .home-panels { min-height:15.85vw; background:url("../images/home-panels-reference.png") center/100% 100% no-repeat; }
-  .home-approach,.home-industries { background:transparent; }
-  .home-approach > *, .home-industries > * { opacity:0; }
+  .home-panels { min-height:320px; background:none; }
+  .home-approach { background-color:#07264a; }
+  .home-industries { background-color:#f1f5f8; }
   .home-signoff { min-height:3.53vw; background:url("../images/home-signoff-reference.png") center/100% 100% no-repeat; }
   .home-signoff > * { opacity:0; }
 }
@@ -401,6 +401,44 @@ button {
   .home-approach > *, .home-industries > * { opacity:1; }
   .home-signoff { min-height:59px; background:linear-gradient(176deg,#f1f5f8 0%,white 48%,white 100%); }
   .home-signoff > * { opacity:1; }
+}
+
+@media (min-width:781px) and (max-width:1200px) {
+  .home-services {
+    min-height:0;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:0 14px;
+    padding:16px 28px;
+    background-image:none;
+  }
+  .home-services a {
+    min-height:82px;
+    padding:8px 10px;
+    border-right:0;
+    border-bottom:1px solid #dce3ea;
+    color:#0d2a58;
+  }
+  .home-services a * { opacity:1; }
+  .home-services strong { font-size:.72rem; }
+  .home-services small { font-size:.7rem; }
+  .service-symbol { flex-basis:56px;width:56px;height:56px;font-size:2.25rem; }
+  .home-panels { min-height:0;background:none; }
+  .home-approach,.home-industries { min-height:300px;padding:28px clamp(24px,3vw,40px); }
+  .home-approach > *, .home-industries > * { opacity:1; }
+  .home-industries { gap:22px; }
+  .home-industry-intro { padding-right:20px; }
+  .home-signoff { min-height:70px;background-size:100% 100%; }
+  .home-signoff > * { opacity:1; }
+}
+@media (min-width:781px) and (max-width:1024px) {
+  .home-panels { grid-template-columns:1fr; }
+  .home-approach,.home-industries { min-height:270px; }
+}
+@media (min-width:1201px) {
+  .home-panels { min-height:320px; }
+  .home-approach,.home-industries { padding-block:32px; }
+  .home-approach { gap:clamp(24px,3vw,52px); }
+  .home-industries { gap:clamp(28px,3vw,52px); }
 }
 
 .stack-sm > * + * {
