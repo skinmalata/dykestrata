@@ -375,14 +375,11 @@ button {
    links remain in the document for accessibility and interaction. */
 @media (min-width:781px) {
   .home-brand { width:clamp(300px,21.83vw,365px); }
-  .home-brand > img { width:100%; height:auto; max-width:none; }
   .home-hero { height:25.36vw; min-height:380px; max-height:490px; }
   .home-hero__backdrop { left:37.08%; right:0; }
   .home-hero__backdrop:before { background:linear-gradient(90deg,#061e3b 0%,rgba(7,31,59,.83) 6%,rgba(7,31,59,.12) 25%,rgba(4,19,37,.12) 100%); }
   .home-hero__labels { display:none; }
-  .home-services { min-height:97px; padding-block:0; background:#fff url("../images/home-services-reference.png") center/100% 100% no-repeat; }
-  .home-services a { color:transparent; }
-  .home-services a * { opacity:0; }
+  .home-services { min-height:110px; padding-block:12px; background:#fff; }
   .home-panels { min-height:320px; background:none; }
   .home-approach { background-color:#07264a; }
   .home-industries { background-color:#f1f5f8; }
@@ -391,7 +388,6 @@ button {
 }
 @media(max-width:780px) {
   .home-brand { width:min(235px,62vw); }
-  .home-brand > img { width:100%; height:auto; max-width:none; }
   .home-hero__backdrop img { object-position:62% center; }
   .home-services { background-image:none; }
   .home-services a { color:#0d2a58; }
@@ -406,10 +402,12 @@ button {
 @media (min-width:781px) and (max-width:1200px) {
   .home-services {
     min-height:0;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(5,minmax(190px,1fr));
     gap:0 14px;
     padding:16px 28px;
     background-image:none;
+    overflow-x:auto;
+    scrollbar-width:thin;
   }
   .home-services a {
     min-height:82px;
@@ -440,13 +438,27 @@ button {
   .home-approach { gap:clamp(24px,3vw,52px); }
   .home-industries { gap:clamp(28px,3vw,52px); }
 }
+@media (min-width:1201px) {
+  .home-services { padding-inline:clamp(28px,3.2vw,54px); }
+  .home-services a { gap:14px;padding-inline:clamp(8px,1vw,18px); }
+  .home-services strong { font-size:.84rem; }
+  .home-services small { font-size:.78rem; }
+}
+@media (min-width:1201px) and (max-width:1450px) {
+  .home-services { grid-template-columns:repeat(5,minmax(190px,1fr));overflow-x:auto;scrollbar-width:thin; }
+  .home-services a { min-height:74px; }
+}
 
 /* Keep the homepage in its mobile layout wherever the navigation becomes a menu. */
 @media (max-width:940px) {
   .site-header:has(.home-brand) { --header-h:72px; }
   .site-header:has(.home-brand) .header-inner { min-height:72px; }
   .home-brand { width:min(235px,62vw); }
-  .home-brand > img { width:100%;height:auto;max-width:none; }
+  .home-brand__mark { width:56px;height:56px; }
+  .home-brand__mark img { width:50px;height:50px; }
+  .home-brand__wordmark { min-width:150px; }
+  .home-brand__wordmark strong { font-size:1.2rem; }
+  .home-brand__wordmark small { font-size:.57rem;letter-spacing:.16em; }
   .home-hero { height:auto;min-height:480px; }
   .home-hero__backdrop { inset:0; }
   .home-hero__backdrop:before { background:linear-gradient(90deg,rgba(4,24,48,.96),rgba(4,24,48,.72)),linear-gradient(0deg,rgba(4,24,48,.2),transparent); }
@@ -456,13 +468,14 @@ button {
   .home-hero h1 { font-size:clamp(2.45rem,9vw,3.3rem); }
   .home-hero__description { font-size:.93rem; }
   .home-hero__labels { display:none; }
-  .home-services { min-height:0;grid-template-columns:1fr 1fr;padding:14px 22px;background-image:none; }
+  .home-services { min-height:0;grid-template-columns:repeat(5,minmax(190px,1fr));padding:14px 22px;background-image:none;overflow-x:auto;scrollbar-width:thin; }
   .home-services a { min-height:68px;padding:10px 8px;border:0;border-bottom:1px solid #dce3ea;color:#0d2a58; }
   .home-services a * { opacity:1; }
-  .home-services a:last-child { grid-column:1/-1; }
-  .service-symbol { flex-basis:48px;width:48px;height:48px;font-size:2rem; }
-  .home-services strong { font-size:.76rem; }
-  .home-services small { font-size:.72rem; }
+  .home-services a:last-child { grid-column:auto; }
+  .service-symbol { flex-basis:58px;width:58px;height:58px;font-size:2.35rem; }
+  .home-services a { gap:16px; }
+  .home-services strong { font-size:.82rem; }
+  .home-services small { font-size:.76rem; }
   .home-panels { grid-template-columns:1fr;min-height:0;background:none; }
   .home-approach { background-color:#07264a; }
   .home-industries { background-color:#f1f5f8; }
@@ -473,8 +486,11 @@ button {
   .home-more { padding-top:3rem; }
 }
 @media (max-width:600px) {
-  .home-services { grid-template-columns:1fr; }
-  .home-services a:last-child { grid-column:auto; }
+  .home-services { grid-template-columns:repeat(5,minmax(190px,1fr)); }
+  .home-services a,.home-services a:last-child { grid-column:auto;min-height:86px;padding:12px 10px; }
+  .service-symbol { flex-basis:64px;width:64px;height:64px;font-size:2.55rem; }
+  .home-services strong { font-size:.86rem; }
+  .home-services small { font-size:.78rem; }
   .home-services strong,.home-services small { white-space:normal; }
   .home-approach { grid-template-columns:1fr; }
   .home-approach ul { display:grid;grid-template-columns:1fr 1fr;gap:0 12px; }
